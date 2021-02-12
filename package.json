@@ -1,8 +1,12 @@
 {
   "name": "linux.js",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Make your own linux distro with javascript",
   "main": "index.js",
+  "bin": {
+    "linuxjs": "index.js",
+    "reqs": "reqs.sh"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MainSilent/linux.js.git"
