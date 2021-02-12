@@ -1,0 +1,19 @@
+{
+  "name": "linux.js",
+  "version": "1.0.0",
+  "description": "Make your own linux distro with javascript",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MainSilent/linux.js.git"
+  },
+  "keywords": [
+    "linux"
+  ],
+  "author": "MainSilent",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MainSilent/linux.js/issues"
+  },
+  "homepage": "https://github.com/MainSilent/linux.js#readme"
+}
