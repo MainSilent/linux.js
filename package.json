@@ -1,6 +1,6 @@
 {
-  "name": "linux.js",
-  "version": "0.0.1",
+  "name": "@mainsilent/linux.js",
+  "version": "0.0.3",
   "description": "Make your own linux distro with javascript",
   "main": "index.js",
   "bin": {
