@@ -36,15 +36,26 @@ if (!fs.existsSync(AppImage) && !fs.existsSync(`filesystem/chroot/root/${AppImag
     process.exit()
 }
 
-// make
+// clean up
 if (fs.existsSync(`filesystem/${name}.iso`) || fs.existsSync('filesystem/iso/live/filesystem.squashfs')) {
     process.stdout.write("Cleaning...")
-    execSync("make -C filesystem clean name="+name)
+    try { execSync("make -C filesystem clean name="+name) }
+    catch(e){}
 }
 
-if (fs.existsSync(`filesystem/chroot/root/${AppImage.split('/').pop()}`)) {
+// make
+if (!fs.existsSync(AppImage) && fs.existsSync(`filesystem/chroot/root/${AppImage.split('/').pop()}`)) {
     process.stdout.write("\nUsing the AppImage file in the root directory...")
-    
+    make()
+}
+else {
+    process.stdout.write("\nMoving AppImage file...")
+    fs.renameSync(AppImage, 'filesystem/'+AppImage.split('/').pop())
+    execSync("make -C filesystem move AppImage="+AppImage.split('/').pop())
+    make()
+}
+
+function make() {
     process.stdout.write("\nGenerating squashfs filesystem...")
     execSync("make -C filesystem genChroot")
 
