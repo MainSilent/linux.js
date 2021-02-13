@@ -1,25 +1,4 @@
 if [ -e package.json ]; then
-    # check for required programs
-    if ! command -v wget &> /dev/null; then
-        echo "wget could not be found"
-        exit
-    fi
-
-    if ! command -v mksquashfs &> /dev/null; then
-        echo "mksquashfs could not be found"
-        exit
-    fi
-
-    if ! command -v unsquashfs &> /dev/null; then
-        echo "unsquashfs could not be found"
-        exit
-    fi
-
-    if ! command -v mkisofs &> /dev/null; then
-        echo "mkisofs could not be found"
-        exit
-    fi
-
     # check for filesystem
     if [ ! -d filesystem ]; then
         echo -n "Press enter to download the filesystem ~280MB: "
