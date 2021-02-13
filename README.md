@@ -1,0 +1,46 @@
+# linux.js
+
+linux.js is a Nodejs library to make a debian based linux distro for your electron project.
+
+## Installation
+
+First make sure you have these programs installed:
+
+```
+build-essential
+wget
+squashfs-tools
+mkisofs
+```
+
+Then install the linux.js library and run `npx reqs` to get the required filesystem:
+
+```bash
+npm i @mainsilent/linux.js
+npx reqs
+```
+
+If you have problems with downloading the filesystem, you can download it from `Releases` then place the `filesystem.squashfs` in the root directory of your project and use the command below to extract the filesystem:
+
+```bash
+unsquashfs -d filesystem filesystem.squashfs
+```
+
+You can also delete the `filesystem.squashfs` after decompressing.
+
+## Usage
+
+Specify the AppImage path in package.json, for example `"AppImage": "dist/test.AppImage"`.
+
+Then run the command below to make the ISO file (it will be located in filesystem directory):
+
+```bash
+npx linuxjs
+```
+
+You can edit the `Makefile` in filesystem directory to change the behaviour of `npx linuxjs`, for example put the ISO file in the root directory of your project.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
