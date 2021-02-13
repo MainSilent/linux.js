@@ -6,8 +6,8 @@ if [ -e package.json ]; then
         wget "https://github.com/MainSilent/linux.js/releases/download/1.0.0/filesystem.squashfs"
         unsquashfs -d filesystem filesystem.squashfs
         rm -f filesystem.squashfs
-    elif [ ! -e filesystem/Makefile -o ! -e filesystem/grub.sh -o ! -d filesystem/iso -o ! -d filesystem/chroot ]; then
-        echo "filesystem corrupted!"
+    else
+        echo "filesystem exists"
     fi
 else
     echo "package.json could not be found"
