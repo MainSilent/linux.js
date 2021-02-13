@@ -1,5 +1,6 @@
 #!/usr/bin/env node 
 const fs = require('fs')
+const { execSync } = require("child_process")
 
 if (!fs.existsSync(`${process.cwd()}/package.json`)) {
     console.log("package.json could not be found")
@@ -34,8 +35,23 @@ if (!fs.existsSync(AppImage) && !fs.existsSync(`filesystem/chroot/root/${AppImag
     console.log("AppImage file could not be found")
     process.exit()
 }
-else if (fs.existsSync(`filesystem/chroot/root/${AppImage.split('/').pop()}`)) {
-    console.log("Using the AppImage file in the root directory")
-}
 
 // make
+if (fs.existsSync(`filesystem/${name}.iso`) || fs.existsSync('filesystem/iso/live/filesystem.squashfs')) {
+    process.stdout.write("Cleaning...")
+    execSync("make -C filesystem clean name="+name)
+}
+
+if (fs.existsSync(`filesystem/chroot/root/${AppImage.split('/').pop()}`)) {
+    process.stdout.write("\nUsing the AppImage file in the root directory...")
+    
+    process.stdout.write("\nGenerating squashfs filesystem...")
+    execSync("make -C filesystem genChroot")
+
+    process.stdout.write("\nSetting grub.cfg...")
+    execSync("make -C filesystem grub name="+name)
+
+    process.stdout.write("\nGenerating ISO file...")
+    execSync("make -C filesystem genISO name="+name)
+    console.log()
+}
