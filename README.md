@@ -40,7 +40,7 @@ npx linuxjs
 
 You can edit the `Makefile` in filesystem directory to change the behaviour of `npx linuxjs`, for example put the ISO file in the root directory of your project.
 
-# Chroot
+## Chroot
 
 To install new programs for your linux distro, change the directory to `filesystem` and use chroot command to change the root directory:
 
