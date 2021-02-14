@@ -16,7 +16,7 @@ mkisofs
 Then install the linux.js library and run `npx reqs` to get the required filesystem:
 
 ```bash
-npm i @mainsilent/linux.js
+npm i @mainsilent/linux.js --save-dev
 npx reqs
 ```
 
