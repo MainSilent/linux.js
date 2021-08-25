@@ -52,6 +52,7 @@ else {
     process.stdout.write("\nMoving AppImage file...")
     fs.renameSync(AppImage, 'filesystem/'+AppImage.split('/').pop())
     execSync("make -C filesystem move AppImage="+AppImage.split('/').pop())
+    fs.writeFileSync('filesystem/chroot/root/.bashrc', `startx ./${AppImage.split('/').pop()} --no-sandbox`)
     make()
 }
 
