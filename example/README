@@ -1,0 +1,8 @@
+## How to build
+
+```
+npm i
+npx electron-builder
+npx reqs
+npx linuxjs
+```

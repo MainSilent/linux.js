@@ -1,0 +1,26 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "AppImage": "dist/example-1.0.0.AppImage",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^13.2.2",
+    "electron-builder": "^22.11.7",
+    "@mainsilent/linux.js": "^1.1.2"
+  },
+  "build": {
+    "files": [
+      "main.js",
+      "index.html"
+    ],
+    "linux": {
+      "target": "AppImage"
+    }
+  }
+}
