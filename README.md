@@ -49,6 +49,3 @@ sudo chroot ./chroot
 apt install whatever
 exit
 ```
-
-## Donate
-`BTC:` 1JBKewHbLMcECaWg23o1TXpvpzUyDJmFGE
